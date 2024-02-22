@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neu BarChart</title>
+    
+    <style>
+      .chart {
+        --chart-data: 100, 200, 300, 400, 500;
+        --bar-color: blue;
+        --bar-width: 40;
+        --bar-height: 150;
+        --bar-spacing: 10;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100vh;
+        background-color: #f0f0f0;
+      };
+    </style>
+  
+</head>
+<body>
+    <div class="chart"></div>
+    <script async>
+// Register paint worklet
+    if ('paintWorklet' in CSS) {
+      CSS.paintWorklet.addModule('neu-barchart.js').then(() => {
+        console.log('Neumorphic Bar chart worklet loaded.');
+      }).catch((error) => {
+        console.error('Failed to load bar chart worklet:', error);
+      });
+    } else {
+      console.error('Paint worklets not supported.');
+    }
+    </script>
+    <script>
+    // Update the chart data
+    const chart = document.querySelector('.chart');
+    chart.style.setProperty('--chart-data', '100, 200, 300, 400, 500');
+    chart.style.setProperty('--bar-color', 'blue');
+    chart.style.setProperty('--bar-width', '40');
+    chart.style.setProperty('--bar-height', '150');
+    chart.style.setProperty('--bar-spacing', '10');
+      
+    </script>
+</body>
+</html>

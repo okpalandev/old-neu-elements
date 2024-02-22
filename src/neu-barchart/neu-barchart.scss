@@ -1,0 +1,43 @@
+
+@property --chart-data {
+    syntax: '<number>+'; 
+    inherits: false;
+    initial-value: none;
+}
+@property --bar-color {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: initial;
+}
+@property --bar-width {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: initial;
+}
+@property --bar-height {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: initial;
+}
+@property --bar-spacing {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: initial;
+}
+
+@supports (background: paint(neu-barchart)) {
+    .neu-barchart {
+        background: paint(neu-barchart);
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        gap: var(--bar-spacing, 1rem);
+        border-radius: 1rem;
+        
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
